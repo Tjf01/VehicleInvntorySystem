@@ -1,0 +1,30 @@
+@model IEnumerable<VehicleInventorySystem.Models.Vehicle>
+
+<h2>Vehicle Inventory</h2>
+<a href="/Vehicle/Create" class="btn btn-primary">Add New Vehicle</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vehicle in Model)
+        {
+            <tr>
+                <td>@vehicle.Make</td>
+                <td>@vehicle.Model</td>
+                <td>@vehicle.Year</td>
+                <td>@vehicle.Price</td>
+                <td>
+                    <a href="/Vehicle/Edit/@vehicle.Id" class="btn btn-secondary">Edit</a>
+                    <a href="/Vehicle/Delete/@vehicle.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
